@@ -1,17 +1,19 @@
 @charset "UTF-8";
-@media (min-width: 1440px) {
-  body > .container {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    margin: 0 auto; }
-  .container > .mobile {
-    display: block;
-    margin: 0; }
-  .container .show {
-    display: block; }
-  .container > .page {
-    margin: 0; } }
+.container {
+  position: relative; }
+  @media (min-width: 1440px) {
+    body > .container {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: 0 auto; }
+    .container > .mobile {
+      display: block;
+      margin: 0; }
+    .container .show {
+      display: block; }
+    .container > .page {
+      margin: 0; } }
 
 .mobile {
   height: auto;
@@ -142,13 +144,12 @@
 
 .page--blur::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
   height: 100%;
-  width: 100%;
+  min-width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
-  z-index: 50; }
+  z-index: 500; }
 
 .list--active:focus::before {
   content: '';
@@ -613,7 +614,7 @@
     width: 24px;
     bottom: 72px;
     background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
-    z-index: 9999; }
+    z-index: 9; }
   .brands__title {
     display: flex;
     flex: 1 0 100%;
@@ -737,7 +738,7 @@
     width: 24px;
     bottom: 72px;
     background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
-    z-index: 9999; }
+    z-index: 9; }
   .softwares__title {
     display: flex;
     flex: 1 0 100%;
@@ -1148,13 +1149,13 @@
 
 .page--blur::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  width: 1440px;
+  min-width: 1440px;
   background-color: rgba(255, 255, 255, 0.8);
-  z-index: 50; }
+  z-index: 500; }
 
 .modal-call {
   width: 320px;
@@ -1280,13 +1281,12 @@
 
 .page--blur::after {
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
   height: 100%;
-  width: 1440px;
+  min-width: 100%;
   background-color: rgba(255, 255, 255, 0.8);
-  z-index: 50; }
+  z-index: 500; }
 
 @font-face {
   font-family: 'TT Lakes';
