@@ -1,6 +1,7 @@
 @import 'base/variables';
 
 .container {
+  position: relative;
 
   @media (min-width: $screen-full) {
     body > & {
