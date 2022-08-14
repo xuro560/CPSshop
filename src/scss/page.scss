@@ -1,0 +1,11 @@
+@import 'base/variables';
+
+.page {
+  max-width: $screen-xl;
+  background: $bgColor;
+  display: flex;
+  justify-content: center;
+  flex-flow: column wrap;
+  margin: 0 auto;
+
+}

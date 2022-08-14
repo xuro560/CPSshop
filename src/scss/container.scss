@@ -1,0 +1,24 @@
+@import 'base/variables';
+
+.container {
+
+  @media (min-width: $screen-full) {
+    body > & {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      margin: 0 auto;
+
+    }
+    & > .mobile {
+      display: block;
+      margin: 0;
+    }
+    .show {
+      display: block;
+    }
+    & > .page {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,223 @@
+@import 'base/variables';
+
+.brands {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  border-bottom: 1px solid $lightBlue;
+
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+
+    &__title {
+      padding: $size-s;
+      gap: $size-s;
+    }
+    .tabs {
+      padding: $size-s;
+    }
+    .tabs__button.read-more {
+        display: none;
+    }
+
+    .tabs {
+      min-width: 0;
+      box-sizing: border-box;
+      position: relative;
+      display: flex;
+      flex-flow: column wrap;
+      & * {
+        box-sizing:border-box;
+      }
+      &__wrapper {
+        display: flex;
+        min-width: 0;
+        flex-flow: row nowrap;
+        margin-bottom: $size-l;
+        gap: 0;
+      }
+      &__slide {
+        width: auto;
+      }
+    }
+
+    .tab {
+        box-sizing:border-box;
+        width: 240px;
+        height: 72px;
+        padding: $size-s;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: $bgColor;
+        border: 1px solid #EAEAEA;
+        border-radius: 6px;
+    }
+  }
+
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+
+    &__title {
+      padding: $size-m;
+      gap: $size-m;
+    }
+    .tabs {
+      padding: $size-m;
+      gap: $size-m;
+
+      &__slide, .tab {
+        max-width: 224px;
+        flex-shrink: 1;
+      }
+      &__wrapper {
+        width: $screen-m;
+        gap: $size-m;
+        flex-flow: row wrap;
+      }
+    }
+    .swiper-pagination {
+      display: none;
+    }
+
+  }
+  @media (min-width: $screen-xl) {
+
+    & {
+      gap: $size-l;
+    }
+    &__title {
+      padding: $size-l;
+      gap: $size-l;
+    }
+    .tabs {
+      padding: $size-l;
+      gap: $size-l;
+      padding-top: 0;
+      &__slide, & .tab {
+        max-width: 224px;
+      }
+      &__wrapper {
+        gap: $size-l;
+        flex-flow: row wrap;
+
+      }
+    }
+    .swiper-pagination {
+        display: none;
+    }
+
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 24px;
+    bottom: 72px;
+    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    z-index: 9999;
+  }
+
+  &__title {
+    display: flex;
+    flex: 1 0 100%;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    color: $darkGray;
+    background: linear-gradient(90deg, #F8F8F8 1.39%, #FFFFFF 100%);
+    h2 {
+      font-weight: 400;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1 0 100%;
+    height: 100%;
+    &__button {
+      font-family: $fontFamily;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex: 1 0 auto;
+
+    }
+    &__slide {
+    cursor: pointer;
+    width: 240px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+
+    &:focus, &:hover {
+      & > * {
+        box-shadow: 0 0 0 1px rgba(65, 246, 215, 0.5);
+        transition: box-shadow ease-in-out $transition;
+      }
+    }
+    &:active {
+      & > * {
+        transform: scale(0.95);
+        transition: transform ease-in-out $transition;
+      }
+
+    }
+    }
+  }
+
+.tab {
+    flex: 0 1 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #EAEAEA;
+    border-radius: 6px;
+    padding: $size-s;
+
+    .round {
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-style: none;
+      background: none;
+    }
+    .dropdown {
+      background-image: url(../img/icon/go.svg);
+      margin: 0;
+    }
+
+  }
+
+  .tab-hide {
+      display: none;
+      transition-duration: $transition;
+  }
+  .hide {
+    overflow: hidden;
+  }
+
+}
+
+.swiper {
+  &-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #DDDDDD;
+    opacity: 1;
+  }
+  &-pagination-bullet-active {
+    background: #B5B6BC;
+  }
+
+}

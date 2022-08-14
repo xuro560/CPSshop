@@ -1,0 +1,102 @@
+@import 'base/variables';
+
+.menu {
+
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+
+    & {
+      width: 100%;
+    }
+    &__slider {
+      width: 100%;
+      overflow-x: scroll;
+      scrollbar-width: none;
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      ::-webkit-scrollbar-thumb {
+        opacity: 0;
+      }
+    }
+  }
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+
+    & {
+      width: 100%;
+    }
+    &__slider {
+      overflow-x: scroll;
+      scrollbar-width: none;
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      ::-webkit-scrollbar-thumb {
+        opacity: 0;
+      }
+    }
+
+  }
+  @media (min-width: $screen-xl) {
+
+    & {
+      width: 100%;
+    }
+    &__slider {
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      margin: $size-s 0;
+      gap: $size-s;
+      a {
+        flex: 0 1 auto;
+      }
+    }
+
+  }
+
+  &__slider {
+    display: flex;
+    gap: $size-m $size-s;
+    margin: $size-m 0 $size-m 0;
+  }
+  &__fade {
+    right: 0;
+    width: 24px;
+    height: 40px;
+    position: absolute;
+    background: linear-gradient(270deg, #f8f8f8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+  }
+
+  .link {
+    display: block;
+    font-weight: 500;
+    line-height: $size-m;
+    letter-spacing: -0.2px;
+    text-decoration: none;
+    color: $darkGray;
+    padding: $size-s/2 $size-s;
+    white-space: nowrap;
+    transition-property: color;
+
+    &:focus, &:hover {
+        color:rgba(126, 126, 130, 0.5);
+        transition-duration: $transition;
+    }
+    &:active{
+      color: $blue;
+      transition-duration: $transition / 2;
+    }
+
+}
+}
+
+.link--active {
+  background: $boxColor;
+  border: 2px solid $lightBlue;
+  border-radius: 6px;
+}

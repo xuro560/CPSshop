@@ -1,0 +1,148 @@
+@import 'base/variables';
+
+.section {
+
+  display: flex;
+  flex-flow: column wrap;
+  gap: $size-s $size-l;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+
+    & {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+    }
+    &__text {
+      width: 100%;
+      height: auto;
+    }
+    &__description > * {
+      font-size: $textSize - 2;
+    }
+    &__image {
+      width: 100%;
+    }
+    .description-size {
+      max-height: 130px;
+    }
+
+  }
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+
+    & {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-content: flex-start;
+      flex: 0 0 100%;
+    }
+    &__text, &__image {
+      flex: 0 1 100%;
+      font-size: $textSize - 2;
+      img {
+        width: 100%;
+        height: max-content;
+        object-fit:contain;
+        object-position: top;
+        border: 1px solid $pageColor;
+        border-radius: 5px;
+      }
+    }
+    .description-size {
+      max-height: 130px;
+    }
+
+  }
+  @media (min-width: $screen-xl) {
+
+    & {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-content: flex-start;
+      & > * {
+        flex: 0 1 50%;
+      }
+    }
+
+    &__image {
+      height:fit-content;
+      align-items: flex-start;
+      img {
+        vertical-align: top;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border: 1px solid $pageColor;
+        border-radius: 5px;
+      }
+    }
+    .description-size {
+      max-height: 130px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-flow: column wrap;
+    gap: $size-s 0;
+  }
+  &__description {
+    display: flex;
+    flex-flow: row wrap;
+    gap: $size-s 0;
+    font-weight: 400;
+  }
+  &__image {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+.read-more {
+  min-width: 132px;
+  font-family: $fontFamily;
+  cursor: pointer;
+  display: flex;
+  vertical-align: center;
+  display: flex;
+  align-content: center;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.2px;
+  background: rgba(255, 255, 255, 0);
+  border: none;
+
+  &:hover {
+    & {
+      color: $blue;
+      transition-duration: 300ms;
+    }
+  }
+  &:hover {
+    &::before {
+      transform: translate(0, 2px);
+      transition: all 0.5s linear;
+      transition-duration: 700ms;
+  }
+  }
+}
+
+
+.read-more::before {
+  width: 24px;
+  height: 24px;
+  content: '';
+  display: block;
+  background-image: url(../img/icon/expand.svg);
+  background-repeat: no-repeat;
+  margin-right: 16px;
+}
+.rotate::before {
+  transform: rotate(180deg);
+  transition-duration: 300ms;
+}
+
+.hide {
+  overflow: hidden;
+}

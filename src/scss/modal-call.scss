@@ -1,0 +1,181 @@
+@import 'base/variables';
+
+.modal-call {
+  width: 320px;
+  height: 1024px;
+  background-color: $boxColor;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+    & {
+      display: none;
+    }
+    .call {
+      box-shadow: 16px 0 52px #0E185033;
+    }
+  }
+
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+    & {
+      display: none;
+    }
+    .call {
+      box-shadow: 16px 0 52px #0E185033;
+    }
+  }
+  @media (min-width: $screen-full) {
+    & {
+      display: none;
+    }
+    & {
+      width: 440px;
+    }
+    & > .call {
+      padding: 0;
+      &__title {
+        position: relative;
+      }
+      .button-close {
+        position: absolute;
+        left: 0;
+        transform: translate(-64px, 0);
+      }
+    }
+  }
+
+
+
+  /* изменение отображения формы отправки */
+  & .call {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-gap: $size-l;
+    align-items: start;
+    padding: $size-m $size-s;
+    height: 676px;
+
+    &__form  {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-gap: $size-s 0;
+      & .input {
+        font-family: inherit;
+        font-size: 14px;
+        margin: 0;
+        display: block;
+        width: 100%;
+        height: $size-m * 2;
+        border: 1px solid $lightGray;
+        background: $boxColor;
+        border-radius: 8px;
+        padding: $size-s;
+      }
+    }
+    &__text {
+      font-size: 14px;
+      color: $darkGray;
+      & a {
+        font-size: inherit;
+        text-decoration: none;
+        color: $pink;
+      }
+    }
+    &__title {
+      $textSize: 1em;
+      font-weight: 900;
+      font-size: $textSize * 2;
+      line-height: 40px;
+      letter-spacing: -0.6px;
+      color: $textColor;
+      &::before {
+        content: '';
+        width: 4px;
+        height: 40px;
+        background: #41F6D7;
+        border:rgba(248, 248, 248, 0.0001);
+        border-radius: 0 20px 20px 0;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
+  .button-close {
+    background-image: url(../img/icon/modal-close.svg);
+  }
+
+  .order {
+    cursor: pointer;
+    background-color: $pink;
+    border-radius: 16px;
+    width: 130px;
+    height: 32px;
+    border-style: none;
+    position: relative;
+    padding: 0 16px;
+    transition-duration: $transition;
+    display: flex;
+    justify-self: end;
+    align-items: center;
+
+    &:focus, &:hover {
+      & {
+        box-shadow: 0 0 5px 1px $pink;
+      }
+    }
+    &:active {
+      & {
+        transform: scale(0.95);
+      }
+    }
+
+    & {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: $size-s;
+      letter-spacing: -0.15px;
+      text-transform: uppercase;
+      color: $boxColor;
+      text-align: left;
+    }
+    &::after {
+      display: block;
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 32px;
+      height: 100%;
+      background-image: url(../img/icon/dropdown.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+}
+
+
+
+
+
+.call--show {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1200;
+  height: 100%;
+  background-color: $boxColor;
+  }
+
+  .page--blur::after {
+   content: "";
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: $screen-full;
+   background-color: rgba(255, 255, 255, 0.8);
+   z-index: 50;
+  }

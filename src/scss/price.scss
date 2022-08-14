@@ -1,0 +1,204 @@
+@import 'base/variables';
+
+.prices {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+    & {
+      gap: $size-s;
+    }
+    &__title {
+      padding: $size-s;
+      gap: $size-s;
+    }
+
+    .tabs {
+      padding: $size-s;
+
+       &__wrapper.swiper-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        margin: 0;
+        background-color: $pageColor;
+        flex: 1 0 auto;
+      }
+      &__slide {
+        height: 200px;
+        width: 260px;
+        &:first-child {
+          display: none;
+        }
+        & div.tab {
+          display: grid;
+          grid-auto-rows: 1fr;
+          grid-auto-columns: 1fr;
+          grid-template-columns: minmax(auto, 1fr);
+          grid-gap: 0;
+          align-items: start;
+          background-color: $boxColor;
+          border-radius: 6px;
+          height: 200px - $size-l;
+          .card {
+            h3 {
+              display: block;
+              color: $darkGray;
+              font-weight: 400;
+            }
+            &:last-child {
+              display: flex;
+              flex-flow: row nowrap;
+              align-items: center;
+
+            }
+          }
+
+        }
+      }
+      .swiper-pagination {
+        position: relative;
+        margin-top: $size-l;
+      }
+    }
+  }
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+    &__title {
+      padding: $size-m;
+      gap: $size-m;
+    }
+    .swiper-pagination {
+      display: none;
+    }
+
+  }
+  @media (min-width: $screen-xl) {
+    &__title {
+      padding: $size-l;
+      gap: $size-l;
+    }
+    .swiper-pagination {
+      display: none;
+    }
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 24px;
+    bottom: 72px;
+    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    z-index: 9999;
+  }
+
+  &__title {
+    display: flex;
+    flex: 1 0 100%;
+    line-height: $size-m;
+    text-transform: uppercase;
+    color: $darkGray;
+    background: linear-gradient(90deg, #F8F8F8 1.39%, #FFFFFF 100%);
+    h2 {
+      font-weight: 400;
+    }
+  }
+
+  .tabs {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1 0 100%;
+
+    &__wrapper {
+      margin: $size-l;
+      margin-top: 0;
+      width: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      background-color: $boxColor;
+      border-radius: 6px;
+    }
+    &__slide {
+
+      .title {
+        background-color: $pageColor;
+        h2 {
+          color: $darkGray;
+          font-weight: 500;
+        }
+      }
+
+      .tab {
+        display: grid;
+        grid-template-columns: 3fr 1fr 2fr;
+        grid-auto-rows: 64px - $size-s;
+        grid-auto-columns: 720px;
+        align-items: center;
+        padding: $size-s;
+        border-bottom: 1px solid $lightGray;
+
+        .card {
+          h3 {
+            display: none;
+          }
+          &:last-child {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+        }
+        .order {
+          cursor: pointer;
+          background-color: $pink;
+          border-radius: 16px;
+          width: 120px - $size-l;
+          height: 32px;
+          border-style: none;
+          position: relative;
+          padding: 0 16px;
+          transition-duration: $transition;
+
+          &:focus, &:hover {
+            & {
+              box-shadow: 0 0 5px 1px $pink;
+            }
+          }
+          &:active {
+            & {
+              transform: scale(0.95);
+            }
+          }
+
+          & {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: $size-s;
+            letter-spacing: -0.15px;
+            text-transform: uppercase;
+            color: $boxColor;
+            text-align: left;
+          }
+          &::after {
+            display: block;
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 32px;
+            height: 100%;
+            background-image: url(../img/icon/dropdown.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+

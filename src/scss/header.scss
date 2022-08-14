@@ -1,0 +1,100 @@
+@import 'base/variables';
+
+@mixin flexbox {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: $size-s;
+}
+
+.header {
+
+  max-height: 88px;
+  width: 100%;
+  background-color: $boxColor;
+  border-bottom: 1px solid $lightBlue;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+    & {
+      width: 100%;
+    }
+      &__second-box, &__main-box > &__divider {
+        display: none;
+      }
+  }
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+    & {
+      width: 100%;
+    }
+    &__sub-box > &__second-box {
+      @include flexbox;
+    }
+
+    &__main-box > &__divider {
+        display: block;
+    }
+  }
+  @media (min-width: $screen-xl) {
+
+    & {
+      display: none;
+    }
+  }
+
+  &__items {
+    @include flexbox;
+    padding: $size-m $size-s;
+  }
+
+  &__main-box {
+    @include flexbox;
+    flex: 0 0 auto;
+    .logo {
+      width: 72px;
+      img {
+        width: 100%;
+        height: 40px;
+      }
+    }
+  }
+
+  &__sub-box {
+    @include flexbox;
+  }
+
+  &__divider {
+    width: 2px;
+    height: 32px;
+    background-color: #eaeaea;
+    border-radius: 1px;
+  }
+
+  &__second-box {
+    @include flexbox;
+    display: none;
+    justify-content: flex-end;
+  }
+}
+
+.round {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.button-burger {
+  background-image: url(../img/icon/burger.svg);
+}
+.button-callback {
+  background-image: url(../img/icon/callback.svg);
+}
+.button-chat {
+  background-image: url(../img/icon/chat.svg);
+}
+.button-mob {
+  background-image: url(../img/icon/profile.svg);
+}

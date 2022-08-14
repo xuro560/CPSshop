@@ -1,0 +1,53 @@
+@import 'base/variables';
+
+.offer {
+  display: flex;
+  flex-flow: row wrap;
+  border-bottom: 1px solid $lightBlue;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+    & {
+      padding: $size-s;
+      gap: $size-s;
+    }
+    &__button {
+      width: 200px;
+    }
+  }
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+    & {
+      padding: $size-m;
+      gap: $size-m;
+    }
+
+  }
+  @media (min-width: $screen-xl) {
+    & {
+      padding: $size-l;
+      gap: $size-l;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    position: relative;
+    font-family: 'TT Lakes';
+    font-weight: 500;
+    text-align: start;
+    border-style: none;
+    background: $pageColor;
+    margin-bottom: $size-l;
+
+    &::after {
+      content: url(../img/icon/dropdown.svg);
+      position: absolute;
+      right: auto;
+      width: $size-s;
+      height: $size-s;
+      margin-left: $size-s / 2;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: invert(48%) sepia(106%) saturate(2697%) hue-rotate(318deg) brightness(100%) contrast(303%);
+    }
+  }
+}

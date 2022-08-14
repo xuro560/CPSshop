@@ -1,0 +1,149 @@
+@import 'base/variables';
+
+
+.main {
+  background-color: $pageColor;
+  width: 100%;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+
+    &__container {
+      padding: $size-m $size-s;
+    }
+    &__expand-buttons {
+      display: none;
+      & button {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+
+    &__container {
+      width: 100%;
+      padding: $size-m;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: $size-m $size-s;
+
+      .section {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        flex: 0 0 100%;
+      }
+    }
+    &__expand-buttons {
+      display: none;
+      & button {
+        display: none;
+      }
+    }
+  }
+  @media (min-width: $screen-xl) {
+
+    &__container {
+      padding: $size-m*2 $size-l;
+      gap: $size-s $size-l;
+
+      .section {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-content: flex-start;
+      }
+    }
+    &__title {
+      width: 100%;
+    }
+    &__expand-buttons {
+      display: block;
+    }
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row wrap;
+    border-bottom: 1px solid $lightBlue;
+  }
+
+  &__title {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 0 auto;
+
+    h1 {
+      $textSize: 1em;
+      font-weight: 900;
+      font-size: $textSize * 2;
+      line-height: 40px;
+      letter-spacing: -0.6px;
+      color: $textColor;
+    }
+    h1::before {
+      content: '';
+      width: 4px;
+      height: 40px;
+      background: #41F6D7;
+      border:rgba(248, 248, 248, 0.0001);
+      border-radius: 0 20px 20px 0;
+      position: absolute;
+      left: 0;
+    }
+
+  }
+
+  &__expand-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    flex: 0 1 auto;
+    font-weight: 500;
+  }
+  &__expand-button {
+    font-family: $fontFamily;
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+    background-position: 100% 50%;
+    padding-right: 40px;
+    background-repeat: no-repeat;
+    border-style: none;
+    background-color: transparent;
+
+    &:focus, &:hover {
+      & {
+        color:rgba(126, 126, 130, 0.5);
+        transition-property: color $transition;
+      }
+    }
+    &:active {
+      & {
+        color: $blue;
+        transition-property: color $transition;
+      }
+    }
+  }
+}
+
+
+.button-repair {
+  background-image: url(../img/icon/repair_bigscreen.svg);
+}
+.button-checkstatus {
+  background-image: url(../img/icon/checkstatus_bigscreen.svg);
+}
+
+.round {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-style: none;
+  cursor: pointer;
+}

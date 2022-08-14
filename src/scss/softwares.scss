@@ -1,0 +1,178 @@
+@import 'base/variables';
+
+.softwares {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  position: relative;
+  border-bottom: 1px solid $lightBlue;
+
+  @media (min-width: $screen-s) and (max-width: $screen-m) {
+    & {
+      gap: $size-s;
+    }
+    &__title {
+      padding: $size-s;
+      gap: $size-s;
+    }
+
+    .tabs {
+      padding: $size-s;
+      gap: $size-s;
+      &__wrapper {
+        flex-flow: row nowrap;
+      }
+    }
+    .tabs__button.read-more {
+      display: none;
+  }
+
+
+  }
+  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+    &__title {
+      padding: $size-m;
+    }
+
+    .tabs {
+      padding: $size-m;
+      &__wrapper {
+        flex-flow: row wrap;
+        gap: $size-m;
+      }
+      &__slide, .tab {
+        max-width: 224px;
+        flex-shrink: 1;
+      }
+    }
+    .swiper-pagination {
+      display: none;
+    }
+
+  }
+  @media (min-width: $screen-xl) {
+    &__title {
+      padding: $size-l;
+      gap: $size-l;
+    }
+
+    .tabs {
+      padding: $size-l;
+      &__wrapper {
+        flex-flow: row wrap;
+        justify-content: flex-start;
+        gap: $size-l $size-s;
+      }
+    }
+    .swiper-pagination {
+      display: none;
+    }
+
+  }
+  &::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 24px;
+    bottom: 72px;
+    background: linear-gradient(270deg, #F8F8F8 16.84%, rgba(248, 248, 248, 0.0001) 100%);
+    z-index: 9999;
+  }
+
+  &__title {
+    display: flex;
+    flex: 1 0 100%;
+    line-height: $size-m;
+    letter-spacing: -0.2px;
+    text-transform: uppercase;
+    color: $darkGray;
+    background: linear-gradient(90deg, #F8F8F8 1.39%, #FFFFFF 100%);
+    h2 {
+      font-weight: 400;
+    }
+  }
+
+  //tabs
+  .tabs {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1 0 100%;
+    &__button {
+      font-family: $fontFamily;
+    }
+
+    &__wrapper {
+      flex: 1 0 auto;
+      margin-bottom: $size-l;
+    }
+
+    &__slide {
+      display: flex;
+      flex: 0 1 auto;
+      width: 240px;
+
+      &:focus, &:hover {
+        & > * {
+          box-shadow: 0 0 0 1px rgba(65, 246, 215, 0.5);
+          transition: box-shadow ease-in-out $transition;
+        }
+      }
+      &:active {
+        & > * {
+          transform: scale(0.95);
+          transition: transform ease-in-out $transition;
+        }
+
+      }
+      & .dropdown {
+        background-image: url(../img/icon/go.svg);
+        background-color: $boxColor;
+      }
+    }
+
+
+    .tab {
+      width: 240px - $size-s;
+      height: 160px;
+      background-color: $boxColor;
+      border: 1px solid #EAEAEA;
+      border-radius: 6px;
+      padding: $size-s;
+      display: flex;
+      flex-flow: column wrap;
+      justify-content: space-between;
+
+      .round {
+        display: flex;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .tab-hide {
+      display: none;
+      transition-duration: $transition;
+  }
+  .hide {
+    overflow: hidden;
+  }
+
+}
+
+.swiper {
+  &-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #DDDDDD;
+    opacity: 1;
+  }
+  &-pagination-bullet-active {
+    background: #B5B6BC;
+  }
+}
+
+
