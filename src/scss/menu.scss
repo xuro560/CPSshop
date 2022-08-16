@@ -16,10 +16,10 @@
       overflow-x: scroll;
       scrollbar-width: none;
 
-      ::-webkit-scrollbar {
+      &::-webkit-scrollbar {
         display: none;
       }
-      ::-webkit-scrollbar-thumb {
+      &::-webkit-scrollbar-thumb {
         opacity: 0;
       }
     }
