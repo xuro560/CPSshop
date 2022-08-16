@@ -16,7 +16,7 @@
       margin: 0; } }
 
 .mobile {
-  height: auto;
+  height: 676px;
   width: 320px;
   background: #ffffff; }
   @media (min-width: 320px) and (max-width: 767px) {
@@ -368,9 +368,9 @@
       width: 100%;
       overflow-x: scroll;
       scrollbar-width: none; }
-      .menu__slider ::-webkit-scrollbar {
+      .menu__slider::-webkit-scrollbar {
         display: none; }
-      .menu__slider ::-webkit-scrollbar-thumb {
+      .menu__slider::-webkit-scrollbar-thumb {
         opacity: 0; } }
   @media (min-width: 767px) and (max-width: 1119px) {
     .menu {
