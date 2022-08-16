@@ -4,6 +4,7 @@
 
   width: 100%;
   display: flex;
+  flex: 1 1 100%;
   overflow-x: hidden;
 
   @media (min-width: $screen-s) and (max-width: $screen-m) {
@@ -15,13 +16,12 @@
       width: 100%;
       overflow-x: scroll;
       scrollbar-width: none;
-
-      &::-webkit-scrollbar {
-        display: none;
-      }
-      &::-webkit-scrollbar-thumb {
-        opacity: 0;
-      }
+    }
+    &__slider::-webkit-scrollbar {
+      display: none;
+    }
+    &__slider::-webkit-scrollbar-thumb {
+      opacity: 0;
     }
   }
   @media (min-width: $screen-m) and (max-width: $screen-xl) {

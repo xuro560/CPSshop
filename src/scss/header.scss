@@ -23,7 +23,7 @@
         display: none;
       }
   }
-  @media (min-width: $screen-m) and (max-width: $screen-xl) {
+  @media (min-width: $screen-m) and (max-width: $screen-full) {
     & {
       width: 100%;
     }
@@ -35,7 +35,7 @@
         display: block;
     }
   }
-  @media (min-width: $screen-xl) {
+  @media (min-width: $screen-full) {
 
     & {
       display: none;

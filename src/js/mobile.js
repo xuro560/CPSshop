@@ -24,12 +24,3 @@ pageBlur.addEventListener( 'touchend', function() {
     pageBlur.classList.remove('page--blur');
   }
 });
-
-
-let links = document.querySelectorAll('.mobile-link');
-for (let i = 0; i < links.length; i++) {
-  links[i].addEventListener ('click', function(evt) {
-    evt.preventDefault();
-    links[i].classList.toggle('list--active');
-  });
-}

@@ -1,8 +1,6 @@
 @import 'base/variables';
 
 .mobile {
-
-  height: 676px;
   width: 320px;
   background: $boxColor;
 
@@ -12,6 +10,15 @@
     }
     &__menu {
       box-shadow: 16px 0 52px #0E185033;
+      min-height: 676px;
+    }
+    &__footer.lang {
+        margin-top: 0;
+    }
+    &__navigation {
+      & .list {
+        gap: $size-m;
+      }
     }
   }
 
@@ -21,6 +28,15 @@
     }
     &__menu {
       box-shadow: 16px 0 52px #0E185033;
+      min-height: 676px;
+    }
+    &__footer.lang {
+        margin-top: 0;
+    }
+    &__navigation {
+      & .list {
+        gap: $size-m;
+      }
     }
 
   }
@@ -33,8 +49,16 @@
       &__menu > &__header {
         padding: 0 $size-l;
       }
+      &__footer.lang {
+        margin-top: $size-l;
+      }
       & .button-close {
         display: none;
+      }
+      &__navigation {
+        & .list {
+          gap: $size-l;
+        }
       }
     }
     &.show {
@@ -44,12 +68,11 @@
 
   &__menu {
     width: 100%;
-    height: $screen-xl;
-
     display: flex;
     flex-flow: column wrap;
     align-content: space-between;
-    gap: $size-s 0;
+    gap: $size-l;
+    padding: $size-m $size-s;
     position: relative;
     top: 0;
     left: 0;
@@ -60,8 +83,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 88px;
-    padding: $size-s;
+    height: auto;
     .logo {
       width: 72px;
         img {
@@ -89,7 +111,6 @@
       flex-flow: column wrap;
       list-style-type: none;
       &__item {
-        padding: 16px 24px;
         position: relative;
       }
   }
@@ -129,8 +150,7 @@
     flex-flow: column wrap;
     justify-content: flex-start;
     flex: 0 1 auto;
-    padding: $size-s;
-
+    gap: $size-s;
     & .round {
       margin: 0;
     }
@@ -142,27 +162,24 @@
     & .buttons {
       display: flex;
       flex-flow: row wrap;
-      gap: 16px;
+      gap: $size-s;
     }
     & .email {
-      font-size: 16px;
-      line-height: 24px;
+      line-height: $size-m;
       letter-spacing: -0.2px;
     }
     & .tel > a {
       font-weight: 700;
-      font-size: 24px;
-      line-height: 32px;
+      font-size: $size-m;
+      line-height: $size-l;
       letter-spacing: -0.6px;
     }
     & .lang {
       display: flex;
       flex-flow: row wrap;
       gap: $size-s / 2;
-      margin-top: 40px;
       text-transform: uppercase;
     }
-
   }
 
   .button-search {
@@ -174,13 +191,13 @@
 
 }
 
-.mobile--show {
- display: block;
- position: fixed;
- z-index: 1000;
- height: auto;
- background-color: $boxColor;
- }
+  .mobile--show {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    height: auto;
+    background-color: $boxColor;
+  }
 
  .page--blur::after {
   content: "";
@@ -192,10 +209,13 @@
   z-index: 500;
  }
 
- .list--active:focus::before {
+ .list__item {
+  position: relative;
+ }
+ .list__item:target::before {
   content: '';
-  position: fixed;
-  left: 0;
+  position: absolute;
+  left: -16px;
   height: 32px;
   width: 4px;
   border: 1px solid $blue;
