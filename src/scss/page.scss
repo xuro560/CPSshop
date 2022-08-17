@@ -7,4 +7,23 @@
   justify-content: center;
   flex-flow: column wrap;
   position: relative;
+  @media (min-width: $screen-xl) and (max-width: $screen-full) {
+    max-width: $screen-full;
+
+  }
+  @media (min-width: $screen-full) {
+    max-width: $screen-xl;
+  }
 }
+
+.page--blur::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  min-width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+ }
+

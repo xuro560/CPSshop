@@ -3,21 +3,29 @@
 .mobile {
   width: 320px;
   background: $boxColor;
+  height: 100%;
 
   @media (min-width: $screen-s) and (max-width: $screen-m) {
     & {
       display: none;
     }
+
     &__menu {
       box-shadow: 16px 0 52px #0E185033;
-      min-height: 676px;
+      height: 100%;
+    }
+    &__header, &__footer {
+      padding: $size-m $size-s;
+      gap: $size-s 0;
     }
     &__footer.lang {
         margin-top: 0;
     }
     &__navigation {
       & .list {
-        gap: $size-m;
+        &__item {
+          padding: $size-xs $size-s;
+        }
       }
     }
   }
@@ -28,14 +36,20 @@
     }
     &__menu {
       box-shadow: 16px 0 52px #0E185033;
-      min-height: 676px;
+      height: 100%;
+    }
+    &__header, &__footer {
+      padding: $size-m $size-s;
+      gap: $size-s 0;
     }
     &__footer.lang {
         margin-top: 0;
     }
     &__navigation {
       & .list {
-        gap: $size-m;
+        &__item {
+          padding: $size-xs $size-s;
+        }
       }
     }
 
@@ -45,9 +59,14 @@
     & {
       display: block;
       position: relative;
-      z-index: 5;
-      &__menu > &__header {
-        padding: 0 $size-l;
+      height: auto;
+      &__menu {
+        min-height: 1024px;
+        box-shadow: none;
+      }
+      &__header, &__footer {
+        padding: $size-l $size-m;
+        gap: $size-m 0;
       }
       &__footer.lang {
         margin-top: $size-l;
@@ -57,7 +76,9 @@
       }
       &__navigation {
         & .list {
-          gap: $size-l;
+          &__item {
+            padding: $size-s $size-m;
+          }
         }
       }
     }
@@ -71,11 +92,13 @@
     display: flex;
     flex-flow: column wrap;
     align-content: space-between;
-    gap: $size-l;
-    padding: $size-m $size-s;
+    justify-content: space-between;
     position: relative;
     top: 0;
     left: 0;
+    &__footer {
+      justify-self: end;
+    }
   }
 
   &__header {
@@ -83,7 +106,6 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: auto;
     .logo {
       width: 72px;
         img {
@@ -104,6 +126,7 @@
   &__navigation {
       display: flex;
       flex: 1 0 auto;
+      position: relative;
   }
 
   .list {
@@ -150,7 +173,6 @@
     flex-flow: column wrap;
     justify-content: flex-start;
     flex: 0 1 auto;
-    gap: $size-s;
     & .round {
       margin: 0;
     }
@@ -194,28 +216,18 @@
   .mobile--show {
     display: block;
     position: fixed;
-    z-index: 1000;
-    height: auto;
+    z-index: 3;
     background-color: $boxColor;
   }
-
- .page--blur::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  height: 100%;
-  min-width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  z-index: 500;
- }
 
  .list__item {
   position: relative;
  }
+
  .list__item:target::before {
   content: '';
   position: absolute;
-  left: -16px;
+  left: 0;
   height: 32px;
   width: 4px;
   border: 1px solid $blue;

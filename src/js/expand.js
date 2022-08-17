@@ -48,13 +48,12 @@
         for (let i = tabAmount * 2; i < tabCounter.length; i++ ) {
           tabCounter[i].classList.add('tab-hide');
         }
-
     }
     }
 
-    //кнопка "Показать все"
     function buttonSwitcher (tabCounter, tabsButton) {
       tabsButton.addEventListener( 'click', function() {
+        hideText(tabCounter, tabsButton);
 
         if (tabCounter === softwares) {
           for (let i = tabAmount; i < tabCounter.length; i++ ) {
@@ -65,15 +64,20 @@
               tabCounter[i].classList.toggle('tab-hide');
           }
         }
+    });
+    }
+    //смена "Показать все" и "Скрыть"
+    function hideText (tabCounter, tabsButton) {
+
+      for (let hiddenText of tabCounter) {
 
         const showAll = 'Показать все';
-
-        if (tabsButton.textContent.includes(showAll)) {
-            tabsButton.textContent = 'Скрыть';
-            tabsButton.classList.toggle('rotate');
+        if (hiddenText.classList.contains('tab-hide')) {
+          tabsButton.textContent = 'Скрыть';
+          tabsButton.classList.toggle('rotate');
         } else {
-            tabsButton.textContent = showAll;
-            tabsButton.classList.toggle('rotate');
+          tabsButton.textContent = showAll;
+          tabsButton.classList.toggle('rotate');
         }
-    });
+      }
     }

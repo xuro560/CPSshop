@@ -1,31 +1,39 @@
 let mobileMenu = document.querySelector('.mobile');
 
-let callOpen = document.querySelectorAll('.button-callback');
 let call = document.querySelector('.modal-call');
 let pageBlur = document.querySelector('.page');
 
+let callOpen = document.querySelectorAll('.button-callback');
 let callClose = document.querySelector('.call--close');
 
+const closeCall = ['mousedown', 'touchend'];
 
-//открыть обратный звонок при клике
-for ( callOpenButton of callOpen) {
-  callOpenButton.addEventListener( 'click', function() {
-    call.classList.add('call--show');
-    pageBlur.classList.add('page--blur');
+//управлять открытием и закрытием окна "Заказать звонок"
+function toggleCallWindow() {
+
+  for (let i in closeCall) {
+
+    document.addEventListener(closeCall[i], function(evt) {
+      evt.preventDefault();
+
+      for (let callOpenButton of callOpen) {
+
+        if (evt.target == callOpenButton) {
+          call.classList.add('call--show');
+          pageBlur.classList.add('page--blur');
+
+        } else if (evt.target.classList.contains('page') || evt.target == callClose) {
+
+          if( !mobileMenu.classList.contains('mobile--show') ) {
+            call.classList.remove('call--show');
+            pageBlur.classList.remove('page--blur');
+          } else {
+            call.classList.remove('call--show');
+          }
+
+        }
+      }
   });
-}
-
-//закрыть обратный звонок при клике
-callClose.addEventListener( 'click', function() {
-
-  call.classList.remove('call--show');
-  if (!mobileMenu.classList.contains('mobile--show') && pageBlur.classList.contains('page--blur')) {
-    pageBlur.classList.remove('page--blur');
   }
-
-});
-//открыть обратный звонок при таче по области
-pageBlur.addEventListener( 'touchstart', function() {
-  call.classList.remove('call--show');
-  pageBlur.classList.remove('page--blur');
-});
+}
+toggleCallWindow();
