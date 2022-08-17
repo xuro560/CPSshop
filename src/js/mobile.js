@@ -1,3 +1,6 @@
+let call = document.querySelector('.modal-call');
+let feedback = document.querySelector('.modal-feedback');
+
 let mobileMenu = document.querySelector('.mobile');
 let pageBlur = document.querySelector('.page');
 
@@ -11,23 +14,49 @@ const closeMenu = ['mousedown', 'touchend'];
 function toggleMenuWindow() {
 
   for (let i in closeMenu) {
-
-    document.addEventListener(closeMenu[i], function(evt) {
-      evt.preventDefault();
-
-        if (evt.target == burgerOpen) {
-
-          mobileMenu.classList.add('mobile--show');
-          pageBlur.classList.add('page--blur');
-
-        } else if (evt.target.classList.contains('page') || evt.target == burgerClose) {
-
-          mobileMenu.classList.remove('mobile--show');
-          pageBlur.classList.remove('page--blur');
-        }
-  });
+  openBurgerButton(closeMenu[i]);
+  closeBurgerButton(closeMenu[i]);
+  closeBurgerOnTouch(closeMenu[i]);
   }
 }
 toggleMenuWindow();
 
 
+function openBurgerButton(object) {
+
+  burgerOpen.addEventListener(object, function(evt) {
+      evt.preventDefault();
+      mobileMenu.classList.add('mobile--show');
+      pageBlur.classList.add('page--blur');
+    });
+}
+
+function closeBurgerButton(object) {
+  burgerClose.addEventListener(object, function(evt) {
+    evt.preventDefault();
+
+    if (call.classList.contains('call--show') || feedback.classList.contains('feedback--show')) {
+      mobileMenu.classList.remove('mobile--show');
+    } else {
+      mobileMenu.classList.remove('mobile--show');
+      pageBlur.classList.remove('page--blur');
+    }
+
+  });
+}
+
+function closeBurgerOnTouch(object) {
+  pageBlur.addEventListener(object, function(evt) {
+
+    if (evt.target == pageBlur) {
+      evt.preventDefault();
+
+      if (call.classList.contains('call--show') || feedback.classList.contains('feedback--show')) {
+        mobileMenu.classList.remove('mobile--show');
+      } else {
+        mobileMenu.classList.remove('mobile--show');
+        pageBlur.classList.remove('page--blur');
+      }
+    }
+});
+}

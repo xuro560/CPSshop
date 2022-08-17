@@ -1,4 +1,6 @@
 let mobileMenu = document.querySelector('.mobile');
+let feedback = document.querySelector('.modal-feedback');
+
 
 let call = document.querySelector('.modal-call');
 let pageBlur = document.querySelector('.page');
@@ -12,28 +14,52 @@ const closeCall = ['mousedown', 'touchend'];
 function toggleCallWindow() {
 
   for (let i in closeCall) {
-
-    document.addEventListener(closeCall[i], function(evt) {
-      evt.preventDefault();
-
-      for (let callOpenButton of callOpen) {
-
-        if (evt.target == callOpenButton) {
-          call.classList.add('call--show');
-          pageBlur.classList.add('page--blur');
-
-        } else if (evt.target.classList.contains('page') || evt.target == callClose) {
-
-          if( !mobileMenu.classList.contains('mobile--show') ) {
-            call.classList.remove('call--show');
-            pageBlur.classList.remove('page--blur');
-          } else {
-            call.classList.remove('call--show');
-          }
-
-        }
-      }
-  });
+  openCallButton(closeCall[i]);
+  closeCallButton(closeCall[i]);
+  closeCallOnTouch(closeCall[i]);
   }
 }
 toggleCallWindow();
+
+
+function openCallButton(object) {
+
+  for (let callOpenButton of callOpen) {
+    callOpenButton.addEventListener(object, function(evt) {
+      evt.preventDefault();
+      call.classList.add('call--show');
+      pageBlur.classList.add('page--blur');
+    });
+
+  }
+}
+
+function closeCallButton(object) {
+  callClose.addEventListener(object, function(evt) {
+    evt.preventDefault();
+
+    if( mobileMenu.classList.contains('mobile--show') || feedback.classList.contains('feedback--show') ) {
+      call.classList.remove('call--show');
+    } else {
+      call.classList.remove('call--show');
+      pageBlur.classList.remove('page--blur');
+    }
+  });
+}
+
+function closeCallOnTouch(object) {
+  pageBlur.addEventListener(object, function(evt) {
+
+    if (evt.target == pageBlur) {
+      evt.preventDefault();
+
+      if( mobileMenu.classList.contains('mobile--show') || feedback.classList.contains('feedback--show') ) {
+        call.classList.remove('call--show');
+      } else {
+        call.classList.remove('call--show');
+        pageBlur.classList.remove('page--blur');
+      }
+    }
+
+});
+}

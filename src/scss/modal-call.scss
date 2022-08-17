@@ -155,12 +155,11 @@
     }
   }
 }
-
 .call--show {
   display: block;
-  position: absolute;
-  right: 0;
+  position: fixed;
   top: 0;
-  z-index: 5;
+  right: 0;
+  z-index: 200;
   background-color: $boxColor;
   }
