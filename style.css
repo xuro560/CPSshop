@@ -1175,7 +1175,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 5;
+  z-index: 200;
   height: 100%;
   background-color: #ffffff; }
 
@@ -1296,10 +1296,10 @@
 
 .call--show {
   display: block;
-  position: absolute;
-  right: 0;
+  position: fixed;
   top: 0;
-  z-index: 5;
+  right: 0;
+  z-index: 200;
   background-color: #ffffff; }
 
 @font-face {
