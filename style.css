@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .container {
+  max-width: 1440px;
   position: relative; }
   @media (min-width: 1440px) {
     body > .container {
@@ -1172,7 +1173,7 @@
 
 .feedback--show {
   display: block;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   z-index: 200;
@@ -1296,7 +1297,7 @@
 
 .call--show {
   display: block;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   z-index: 200;
