@@ -9,7 +9,7 @@
   function setSlider() {
     if (window.innerWidth <= 767 ) {
 
-      for (swiper of swipers) {
+      for (let swiper of swipers) {
         swiper.dataset.mobile = 'true';
 
         mySwiper = new Swiper(swiper, {

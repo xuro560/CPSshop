@@ -1,7 +1,8 @@
 @import 'base/variables';
 
 .container {
-  position: relative;
+max-width: $screen-full;
+position: relative;
 
   @media (min-width: $screen-full) {
     body > & {
